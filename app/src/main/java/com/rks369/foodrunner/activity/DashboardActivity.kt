@@ -7,8 +7,10 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.FrameLayout
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import com.rks369.foodrunner.util.setEdgeToEdgeContentView
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.GravityCompat
@@ -29,13 +31,24 @@ class DashboardActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dashboard)
+        setEdgeToEdgeContentView(R.layout.activity_dashboard)
         drawerLayout = findViewById(R.id.drawerLayout)
         coordinatorLayout = findViewById(R.id.coordinatorLayout)
         toolbar = findViewById(R.id.toolbar)
         frameLayout = findViewById(R.id.frameLayout)
         navigationView = findViewById(R.id.navigationView)
         setUpToolbar()
+        // onBackPressed() is no longer called on Android 16+ with targetSdk 36+ (predictive back).
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (supportFragmentManager.findFragmentById(R.id.frameLayout) !is HomeFragment) {
+                    openHome()
+                } else {
+                    isEnabled = false
+                    onBackPressedDispatcher.onBackPressed()
+                }
+            }
+        })
         val actionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout,
             R.string.Open_drawer,
             R.string.Close_drawer
@@ -127,13 +140,6 @@ class DashboardActivity : AppCompatActivity() {
                         transaction.commit()
         supportActionBar?.title="All Restaurants"
         navigationView.setCheckedItem(R.id.home)
-    }
-
-    override fun onBackPressed() {
-        when(supportFragmentManager.findFragmentById(R.id.frameLayout)){
-            !is HomeFragment -> openHome()
-            else -> super.onBackPressed()
-        }
     }
 
 }

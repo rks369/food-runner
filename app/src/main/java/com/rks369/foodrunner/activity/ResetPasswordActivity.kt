@@ -3,6 +3,7 @@ package com.rks369.foodrunner.activity
 import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
+import com.rks369.foodrunner.util.setEdgeToEdgeContentView
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
@@ -29,7 +30,7 @@ class ResetPasswordActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_reset_password)
+        setEdgeToEdgeContentView(R.layout.activity_reset_password)
 
         txtEnter = findViewById(R.id.txtEnter)
         etOTP = findViewById(R.id.etOTP)

@@ -17,10 +17,9 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.rks369.foodrunner.R
 import com.rks369.foodrunner.util.ConnectionManager
-import com.rks369.foodrunner.util.SessionManager
 
-import kotlinx.android.synthetic.main.activity_register.*
 import org.json.JSONObject
+import androidx.core.content.edit
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -34,8 +33,9 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var btnRegisterPage: Button
 
     private lateinit var toolbar: Toolbar
+    private lateinit var rlRegister: View
 
-    private lateinit var sharedpreferences: SharedPreferences
+    private lateinit var sharedPreferences: SharedPreferences
 
     private var emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
     private var mobilePattern = "[7-9][0-9]{9}"
@@ -44,6 +44,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         title = "Register Yourself"
+        sharedPreferences = getSharedPreferences("FoodApp", MODE_PRIVATE)
 
         etName = findViewById(R.id.etName)
         etEmail = findViewById(R.id.etEmail)
@@ -54,6 +55,7 @@ class RegisterActivity : AppCompatActivity() {
         btnRegisterPage = findViewById(R.id.btnRegister)
 
         toolbar = findViewById(R.id.toolbar)
+        rlRegister = findViewById(R.id.rlRegister)
 
         setUpToolbar()
 
@@ -134,26 +136,28 @@ class RegisterActivity : AppCompatActivity() {
                         val success = obj.getBoolean("success")
                         if (success) {
                             val response = obj.getJSONObject("data")
-                            sharedpreferences.edit()
-                                .putString("user_id", response.getString("user_id"))
-                                .apply()
-                            sharedpreferences.edit()
-                                .putString("user_name", response.getString("name"))
-                                .apply()
-                            sharedpreferences.edit()
-                                .putString(
+                            sharedPreferences.edit {
+                                putString("user_id", response.getString("user_id"))
+                            }
+                            sharedPreferences.edit {
+                                putString("user_name", response.getString("name"))
+                            }
+                            sharedPreferences.edit {
+                                putString(
                                     "user_mobile_number",
                                     response.getString("mobile_number")
                                 )
-                                .apply()
-                            sharedpreferences.edit()
-                                .putString("user_address", response.getString("address")).apply()
-                            sharedpreferences.edit()
-                                .putString("user_email", response.getString("email")).apply()
+                            }
+                            sharedPreferences.edit {
+                                putString("user_address", response.getString("address"))
+                            }
+                            sharedPreferences.edit {
+                                putString("user_email", response.getString("email"))
+                            }
 
-                            sharedpreferences.edit()
-                                .putBoolean("isLoggedIn", true)
-                                .apply()
+                            sharedPreferences.edit {
+                                putBoolean("isLoggedIn", true)
+                            }
 
                             Toast.makeText(this@RegisterActivity, "Successfully Registered", Toast.LENGTH_LONG)
                                 .show()

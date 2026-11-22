@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
+import com.rks369.foodrunner.util.setEdgeToEdgeContentView
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
@@ -52,7 +53,7 @@ class RestaurantMenuActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_restaurant_menu)
+        setEdgeToEdgeContentView(R.layout.activity_restaurant_menu)
 
         recyclerView = findViewById(R.id.recyclerView)
 

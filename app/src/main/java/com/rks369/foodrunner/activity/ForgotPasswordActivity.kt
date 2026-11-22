@@ -2,6 +2,7 @@ package com.rks369.foodrunner.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
+import com.rks369.foodrunner.util.setEdgeToEdgeContentView
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
@@ -29,7 +30,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_forgot_password)
+        setEdgeToEdgeContentView(R.layout.activity_forgot_password)
 
         txtInstruction=findViewById(R.id.txtEnterMobile)
         etMobileNumber3=findViewById(R.id.etForgotMobile)
