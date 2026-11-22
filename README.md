@@ -8,6 +8,12 @@ I built it during the **Internshala Android App Development training**, and late
 
 Download the APK from the [latest release](https://github.com/rks369/food-runner/releases/latest). It runs on Android 6.0 or newer; you may need to allow installs from unknown sources.
 
+## Screenshots
+
+| Login | Register | Restaurants | Menu | Navigation drawer |
+|:---:|:---:|:---:|:---:|:---:|
+| <img src="doc/screenshots/login.jpeg" width="160" alt="Login screen"> | <img src="doc/screenshots/register.jpeg" width="160" alt="Register screen"> | <img src="doc/screenshots/restaurants.jpeg" width="160" alt="Restaurant list"> | <img src="doc/screenshots/restaurant-menu.jpeg" width="160" alt="Restaurant menu"> | <img src="doc/screenshots/navigation-drawer.jpeg" width="160" alt="Navigation drawer"> |
+
 ## Features
 
 - **Authentication:** register, log in, forgot password, and reset password with an OTP. The session is saved, so users stay logged in.
