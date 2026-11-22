@@ -10,9 +10,13 @@ Download the APK from the [latest release](https://github.com/rks369/food-runner
 
 ## Screenshots
 
-| Login | Register | Restaurants | Menu | Navigation drawer |
-|:---:|:---:|:---:|:---:|:---:|
-| <img src="doc/screenshots/login.jpeg" width="160" alt="Login screen"> | <img src="doc/screenshots/register.jpeg" width="160" alt="Register screen"> | <img src="doc/screenshots/restaurants.jpeg" width="160" alt="Restaurant list"> | <img src="doc/screenshots/restaurant-menu.jpeg" width="160" alt="Restaurant menu"> | <img src="doc/screenshots/navigation-drawer.jpeg" width="160" alt="Navigation drawer"> |
+<p align="center">
+  <img src="doc/screenshots/login.jpeg" width="150" alt="Login screen" title="Login">
+  <img src="doc/screenshots/register.jpeg" width="150" alt="Register screen" title="Register">
+  <img src="doc/screenshots/restaurants.jpeg" width="150" alt="Restaurant list" title="Restaurants">
+  <img src="doc/screenshots/restaurant-menu.jpeg" width="150" alt="Restaurant menu" title="Menu">
+  <img src="doc/screenshots/navigation-drawer.jpeg" width="150" alt="Navigation drawer" title="Navigation drawer">
+</p>
 
 ## Features
 
