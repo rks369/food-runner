@@ -4,6 +4,10 @@ A food-ordering Android app written in Kotlin. Users can sign up, browse restaur
 
 I built it during the **Internshala Android App Development training**, and later updated it to current Android tooling.
 
+## Download
+
+Download the APK from the [latest release](https://github.com/rks369/food-runner/releases/latest). It runs on Android 6.0 or newer; you may need to allow installs from unknown sources.
+
 ## Features
 
 - **Authentication:** register, log in, forgot password, and reset password with an OTP. The session is saved, so users stay logged in.
@@ -53,4 +57,4 @@ app/src/main/java/com/rks369/foodrunner/
 
 ## License
 
-This is a personal learning project. Feel free to browse the code for reference.
+Released under the [MIT License](LICENSE).
